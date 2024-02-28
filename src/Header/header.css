@@ -1,0 +1,29 @@
+.header {
+  height: 5rem;
+  background-color: #242424;
+  color: aliceblue;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 4rem;
+  align-items: center;
+}
+
+.header__title {
+  display: none;
+  @media (width > 600px) {
+    display: block;
+  }
+}
+
+.logo {
+  height: 3rem;
+  color: inherit;
+
+}
+
+.header__menu {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-left: auto;
+}

@@ -1,9 +1,10 @@
 import "./App.css";
+import { Header } from "./Header/Header.tsx";
 
 function App() {
   return (
     <main>
-      <h1>Google Books Viewer</h1>
+      <Header />
     </main>
   );
 }
