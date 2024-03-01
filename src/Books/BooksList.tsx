@@ -1,14 +1,13 @@
 import { BookCard } from "./BookCard";
-import { bookMapper } from "./utils.ts";
-import mockedBooks from "../api/mockedResponseManagement.ts";
 import { Book } from "../types.ts";
+import { searchBooks } from "../api/mockedApiCollection.ts";
 
-const page1Books = mockedBooks.items.map(bookMapper);
+const mockedBooks = searchBooks("management");
 
 function BooksList() {
   return (
     <div className="app__main cards">
-      {page1Books.map((book: Book) => (
+      {mockedBooks.map((book: Book) => (
         <BookCard book={book} key={book.id} />
       ))}
     </div>

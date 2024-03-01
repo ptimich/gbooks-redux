@@ -27,4 +27,7 @@ interface VolumesApiResponse {
   items: BookApi[];
 }
 
-export type { BookApi, Book, VolumesApiResponse };
+// TEMP for mocked data
+type searchTerm = "javascript" | "management";
+
+export type { BookApi, Book, VolumesApiResponse, searchTerm };
