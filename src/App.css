@@ -1,0 +1,11 @@
+.app__header {
+  position: sticky;
+  top: 0;
+  right: 0;
+}
+
+.app__main {
+  max-width: 94rem;
+  margin-inline: auto;
+  padding: 0.5rem;
+}

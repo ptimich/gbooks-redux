@@ -3,7 +3,7 @@ import reduxLogo from "/redux.svg";
 
 function Header() {
   return (
-    <section className="header">
+    <div className="header">
       <img src={reduxLogo} className="logo" alt="Redux logo" />
       <h1 className="header__title">Google Books</h1>
       <ul className="header__menu">
@@ -14,7 +14,7 @@ function Header() {
           <a href="#">Favorites</a>
         </li>
       </ul>
-    </section>
+    </div>
   );
 }
 

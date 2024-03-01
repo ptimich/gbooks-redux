@@ -1,0 +1,37 @@
+.book-card {
+    grid-row: auto / span 4;
+    display: grid;
+    grid-template-rows: subgrid;
+
+    align-items: start;
+    justify-items: center;
+
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background-color: #efdfc0;
+    text-align: center;
+}
+
+.cards {
+    --minCardWidth: 20rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(var(--minCardWidth), 1fr));
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: center;
+
+    @media (width > 75rem ) {
+        --minCardWidth: 24%;
+    }
+
+}
+
+
+.book-card__cover {
+    width: 75%;
+    max-height: 25rem;
+    object-fit: contain;
+    align-self: stretch;
+}
