@@ -1,5 +1,6 @@
 import "./header.css";
 import reduxLogo from "/redux.svg";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
@@ -8,10 +9,10 @@ function Header() {
       <h1 className="header__title">Google Books</h1>
       <ul className="header__menu">
         <li>
-          <a href="#">Search</a>
+          <NavLink to="/search">Search</NavLink>
         </li>
         <li>
-          <a href="#">Favorites</a>
+          <NavLink to="/favorites">Favorites</NavLink>
         </li>
       </ul>
     </div>

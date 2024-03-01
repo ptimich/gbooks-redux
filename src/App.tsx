@@ -1,16 +1,17 @@
 import "./App.css";
-import { Header } from "./Header/Header.tsx";
 import { BooksList } from "./Books/BooksList.tsx";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { Layout } from "./Layout.tsx";
 
 function App() {
   return (
     <main>
-      <section className="app__header">
-        <Header />
-      </section>
-      <section className="app__main">
-        <BooksList />
-      </section>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Navigate to="/search" />} />
+          <Route path="search" element={<BooksList />} />
+        </Route>
+      </Routes>
     </main>
   );
 }
