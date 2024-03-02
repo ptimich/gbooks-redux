@@ -6,7 +6,7 @@ const mockedBooks = searchBooks("management");
 
 function BooksList() {
   return (
-    <div className="app__main cards">
+    <div className="cards">
       {mockedBooks.map((book: Book) => (
         <BookCard book={book} key={book.id} />
       ))}

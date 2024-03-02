@@ -4,3 +4,15 @@
   gap: 2rem;
   max-width: 40rem;
 }
+
+.book-details__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.book-details__cta {
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  background: none;
+}
