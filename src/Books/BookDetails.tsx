@@ -1,6 +1,7 @@
 import coverPlaceholderImg from "../assets/cover-placeholder.webp";
 import { useParams } from "react-router-dom";
 import { getBook } from "../api/mockedApiCollection.ts";
+import "./book-details.css";
 
 function BookDetails() {
   const { id } = useParams();
@@ -8,9 +9,9 @@ function BookDetails() {
   const { thumbnail, title, subtitle, searchInfo } = getBook(id);
   return (
     <section>
-      <article className="book-card">
+      <article className="book-details">
         <h3>{title}</h3>
-        <span className="book-cover book-card__cover">
+        <span className="book-cover ">
           <img src={thumbnail || coverPlaceholderImg} alt="" />
         </span>
         <h4>{subtitle}</h4>
