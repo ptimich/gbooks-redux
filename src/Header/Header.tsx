@@ -9,7 +9,7 @@ function Header() {
       <h1 className="header__title">Google Books</h1>
       <ul className="header__menu">
         <li>
-          <NavLink to="/search">Search</NavLink>
+          <NavLink to="/books">Search</NavLink>
         </li>
         <li>
           <NavLink to="/favorites">Favorites</NavLink>
