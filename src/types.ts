@@ -4,7 +4,6 @@ interface BookApi {
     title: string;
     subtitle?: string;
     imageLinks?: {
-      smallThumbnail: string;
       thumbnail: string;
     };
   };
@@ -22,8 +21,6 @@ interface Book {
 }
 
 interface VolumesApiResponse {
-  kind: string;
-  totalItems: number;
   items: BookApi[];
 }
 
