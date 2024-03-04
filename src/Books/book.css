@@ -12,6 +12,10 @@
   }
 }
 
+.is-fetching {
+  opacity: 0.6;
+}
+
 .book-card {
   grid-row: auto / span 4;
   display: grid;

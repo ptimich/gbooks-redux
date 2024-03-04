@@ -2,11 +2,13 @@ import { BookCard } from "./BookCard";
 import { Book } from "../types.ts";
 import { useParams } from "react-router-dom";
 import { useGetBooksQuery } from "../api/booksApiSlice.ts";
+import * as React from "react";
 
-function BooksList() {
+const BooksList = React.memo(() => {
   const { searchTerm } = useParams();
-  // TODO create loading indicator
-  const { data, isError, isLoading, isSuccess } = useGetBooksQuery(searchTerm!);
+  const { data, isError, isSuccess, isFetching } = useGetBooksQuery(
+    searchTerm!,
+  );
 
   if (isError) {
     return (
@@ -18,7 +20,7 @@ function BooksList() {
 
   if (isSuccess) {
     return (
-      <div className="cards">
+      <div className={`cards ${isFetching ? "is-fetching" : ""}`}>
         {data.map((book: Book) => (
           <BookCard
             book={book}
@@ -29,6 +31,6 @@ function BooksList() {
       </div>
     );
   }
-}
+});
 
 export { BooksList };
