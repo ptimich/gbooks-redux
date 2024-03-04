@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./book-details.css";
 import { useGetBooksQuery } from "../api/booksApiSlice.ts";
 import { Book } from "../types.ts";
-import { useFavoriteBooks } from "../Favorites/useFavoriteBooks.ts";
+import { useFavoriteBook } from "../Favorites/useFavoriteBook.ts";
 
 function BookDetails() {
   const { searchTerm, id } = useParams();
@@ -17,7 +17,7 @@ function BookDetails() {
   });
 
   const { thumbnail, title, subtitle, searchInfo } = book;
-  const [isFavorite, toggleFavoriteHandler] = useFavoriteBooks(book);
+  const [isFavorite, toggleFavoriteHandler] = useFavoriteBook(book);
 
   return (
     <section>

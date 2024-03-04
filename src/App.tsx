@@ -4,6 +4,7 @@ import { Layout } from "./Layout.tsx";
 import { BookDetails } from "./Books/BookDetails.tsx";
 import { BookSearchLayout } from "./Books/BookSearchLayout.tsx";
 import { BooksList } from "./Books/BooksList.tsx";
+import { FavoriteBooksList } from "./Favorites/FavoriteBooksList.tsx";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path=":searchTerm" element={<BooksList />} />
           </Route>
           <Route path="books/:searchTerm/:id" element={<BookDetails />} />
+          <Route path="favorites" element={<FavoriteBooksList />} />
         </Route>
       </Routes>
     </main>

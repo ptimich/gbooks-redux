@@ -2,7 +2,7 @@ import { Book } from "../types.ts";
 import { useAppDispatch, useAppSelector } from "../reduxHooks.ts";
 import { isFavoriteSelector, toggleFavorite } from "./favoritesSlice.ts";
 
-function useFavoriteBooks(book: Book) {
+function useFavoriteBook(book: Book) {
   const dispatch = useAppDispatch();
 
   const isFavorite = useAppSelector((state) =>
@@ -15,4 +15,4 @@ function useFavoriteBooks(book: Book) {
   return [isFavorite, toggleFavoriteHandler] as const;
 }
 
-export { useFavoriteBooks };
+export { useFavoriteBook };

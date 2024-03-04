@@ -25,9 +25,8 @@ export const favoritesSlice = createSlice({
 
 export const { toggleFavorite } = favoritesSlice.actions;
 
-export const { selectAll, selectById } = favoritesEntityAdapter.getSelectors(
-  (state: RootState) => state.favorites,
-);
+export const { selectAll: getAllFavorites, selectById } =
+  favoritesEntityAdapter.getSelectors((state: RootState) => state.favorites);
 
 export const isFavoriteSelector = (state: RootState, id: string) =>
   !!selectById(state, id);
