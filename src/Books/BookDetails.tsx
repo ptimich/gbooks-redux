@@ -1,18 +1,27 @@
 import coverPlaceholderImg from "../assets/cover-placeholder.webp";
 import { useParams } from "react-router-dom";
-import { getBook } from "../api/mockedApiCollection.ts";
 import "./book-details.css";
 import { useState } from "react";
+import { useGetBooksQuery } from "../api/booksApiSlice.ts";
+import { Book } from "../types.ts";
 
 function BookDetails() {
-  const { id } = useParams();
+  const { searchTerm, id } = useParams();
   if (!id) throw new Error("Bad route config");
-  const { thumbnail, title, subtitle, searchInfo } = getBook(id);
+  const book = useGetBooksQuery(searchTerm!, {
+    selectFromResult: (result) => {
+      return result.data?.find((book) => book.id === id) ?? ({} as Book);
+    },
+  });
+
+  const { thumbnail, title, subtitle, searchInfo } = book;
   const [isFavorite, setIsFavorite] = useState(false);
+
   const toggleFavorite = () => {
     console.log("Favorite CTA");
     setIsFavorite((prev) => !prev);
   };
+
   return (
     <section>
       <article className="book-details">
