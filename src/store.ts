@@ -6,8 +6,9 @@ import {
 } from "@reduxjs/toolkit";
 import { booksApiSlice } from "./api/booksApiSlice.ts";
 import { setupListeners } from "@reduxjs/toolkit/query";
+import { favoritesSlice } from "./Favorites/favoritesSlice.ts";
 
-const rootReducer = combineSlices(booksApiSlice);
+const rootReducer = combineSlices(favoritesSlice, booksApiSlice);
 
 export type RootState = ReturnType<typeof rootReducer>;
 
@@ -33,6 +34,7 @@ export const store = makeStore();
 
 // Infer the type of `store`
 export type AppStore = typeof store;
+
 // Infer the `AppDispatch` type from the store itself
 export type AppDispatch = AppStore["dispatch"];
 export type AppThunk<ThunkReturnType = void> = ThunkAction<

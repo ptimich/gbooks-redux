@@ -1,33 +1,30 @@
 import coverPlaceholderImg from "../assets/cover-placeholder.webp";
 import { useParams } from "react-router-dom";
 import "./book-details.css";
-import { useState } from "react";
 import { useGetBooksQuery } from "../api/booksApiSlice.ts";
 import { Book } from "../types.ts";
+import { useFavoriteBooks } from "../Favorites/useFavoriteBooks.ts";
 
 function BookDetails() {
   const { searchTerm, id } = useParams();
   if (!id) throw new Error("Bad route config");
-  const book = useGetBooksQuery(searchTerm!, {
+  const { book } = useGetBooksQuery(searchTerm!, {
     selectFromResult: (result) => {
-      return result.data?.find((book) => book.id === id) ?? ({} as Book);
+      return {
+        book: result.data?.find((book) => book.id === id) ?? ({} as Book),
+      };
     },
   });
 
   const { thumbnail, title, subtitle, searchInfo } = book;
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  const toggleFavorite = () => {
-    console.log("Favorite CTA");
-    setIsFavorite((prev) => !prev);
-  };
+  const [isFavorite, toggleFavoriteHandler] = useFavoriteBooks(book);
 
   return (
     <section>
       <article className="book-details">
         <header className="book-details__header">
           <h3>{title}</h3>
-          <button className="book-details__cta" onClick={toggleFavorite}>
+          <button className="book-details__cta" onClick={toggleFavoriteHandler}>
             {isFavorite ? "★" : "☆"}
           </button>
         </header>
