@@ -7,8 +7,13 @@ import {
 import { booksApiSlice } from "./api/booksApiSlice.ts";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { favoritesSlice } from "./Favorites/favoritesSlice.ts";
+import { searchTermSlice } from "./SearchInput/searchTermSlice.ts";
 
-const rootReducer = combineSlices(favoritesSlice, booksApiSlice);
+const rootReducer = combineSlices(
+  searchTermSlice,
+  favoritesSlice,
+  booksApiSlice,
+);
 
 export type RootState = ReturnType<typeof rootReducer>;
 
